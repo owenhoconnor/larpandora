@@ -1,4 +1,4 @@
-#include "calorimetry_dune10kt.fcl"
+#include "calorimetry_sbnd.fcl"
 
 BEGIN_PROLOG
 
@@ -7,7 +7,7 @@ showervar_manager:
   RecoModuleLabel:   "pandora"
   TrackModuleLabel:  "pandoraTrack"  
   ShowerModuleLabel: "pandoraShower"
-  HitModuleLabel:    "hitfd"
+  HitModuleLabel:    "gaushit"
   PlaneIDForEnergy:  2 
 
   DisplacementMean:    35.7004 # Calculate offline in training pre-processing script

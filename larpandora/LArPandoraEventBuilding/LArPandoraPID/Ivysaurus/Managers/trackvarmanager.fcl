@@ -1,4 +1,4 @@
-#include "calorimetry_dune10kt.fcl"
+#include "calorimetry_sbnd.fcl"
 
 BEGIN_PROLOG
 
@@ -8,7 +8,7 @@ trackvar_manager:
   TrackModuleLabel:   "pandoraTrack"
   PlaneIDForEnergy:    2
   RecombFactor:        0.63
-  CalorimetryAlg:      @local::dune10kt_calorimetryalgmc
+  CalorimetryAlg:      @local::sbnd_calorimetryalgmc
   MinTrackLengthMCS:   100.0
   MaxTrackLengthMCS:   1350.0
   IntTrkMomRange:      0.0  # In recent production, these corrections are removed (do this here for consistency)

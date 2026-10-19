@@ -14,7 +14,7 @@ ivysaurus_training_files:
   TrackVarManager:         @local::trackvar_manager
   ShowerVarManager:        @local::showervar_manager
   LArGeantModuleLabel:     'largeant'
-  HitModuleLabel:          'hitfd'
+  HitModuleLabel:          'gaushit'
   RecoModuleLabel:         'pandora'
   TrackModuleLabel:        'pandoraTrack'
   ShowerModuleLabel:       'pandoraShower'    

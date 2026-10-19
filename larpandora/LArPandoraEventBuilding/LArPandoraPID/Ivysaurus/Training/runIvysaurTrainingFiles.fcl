@@ -1,7 +1,5 @@
 #include "ivysaurustrainingfiles.fcl"
-#include "services_dune.fcl"
-#include "deepan_reco2_workflow.fcl"
-#include "tools_dune.fcl"
+#include "simulationservices_sbnd.fcl"
 
 process_name: IvysaurusTrainingFiles
 
@@ -12,7 +10,9 @@ services:
                   closeFileFast: false }
   FileCatalogMetadata:  @local::art_file_catalog_mc
   RandomNumberGenerator: {} #ART native random number generator
-                        @table::dunefd_1x2x6_services
+  @table::sbnd_services
+  ParticleInventoryService: @local::sbnd_particleinventoryservice
+  BackTrackerService: @local::sbnd_backtrackerservice
 }
 
 # Input source is a ROOT file 
@@ -28,10 +28,6 @@ source:
 # Modules are grouped by type.
 physics:
 {
-  producers:
-  {
-     @table::pandora_horizdrift_producers
-  }
 
   # Declare the modules
   analyzers:
@@ -39,14 +35,9 @@ physics:
     ivyTrain:     @local::ivysaurus_training_files
   }
 
-  reco: [ @sequence::deepan_workflow_reco2 ]
-  trigger_paths: [ reco ]
-
   stream1: [ivyTrain]
   end_paths: [ stream1 ]
 }
-
-physics.producers.pandora.ConfigFile: "PandoraSettings_Master_DUNEFD_DizzleSelection.xml"
 
 ########################################################################
 
